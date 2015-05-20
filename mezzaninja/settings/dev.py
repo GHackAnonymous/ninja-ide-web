@@ -10,6 +10,7 @@ from base import *
 
 DEBUG = True
 LESS_DEBUG = True
+LESS_EXECUTABLE = "node_modules/less/bin/lessc"
 COMPRESS_ENABLED = not DEBUG
 
 TEST_RUNNER = 'django.test.simple.DjangoTestSuiteRunner'
@@ -42,6 +43,5 @@ for preprocessor_type, processor_call in COMPRESS_PRECOMPILERS:
         processor_call = LESS_EXECUTABLE + " {infile} {outfile}"
     dev_compress.append((preprocessor_type, processor_call))
 COMPRESS_PRECOMPILERS = tuple(dev_compress)
-
 
 run_checkers(globals())
